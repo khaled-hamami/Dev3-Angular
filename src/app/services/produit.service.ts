@@ -43,4 +43,14 @@ export class ProduitService {
       this.produits.splice(index, 1);
     }
   }
+  consulterProduit(id: number): Produit {
+    return this.produits.find((p) => p.idProduit == id)!;
+  }
+  updateProduit(p:Produit)
+{
+// console.log(p);
+this.supprimerProduit(p);
+this.ajouterProduit(p);
+}
+
 }

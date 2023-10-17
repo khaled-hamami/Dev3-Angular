@@ -7,6 +7,7 @@ import { ProduitService } from '../services/produit.service';
 })
 export class ProduitsComponent implements OnInit {
   produits: Produit[];
+
   constructor(private produiService: ProduitService) {
     this.produits = produiService.listeProduit();
   }
@@ -16,4 +17,5 @@ export class ProduitsComponent implements OnInit {
     let conf = confirm('vous etes sure');
     if (conf) this.produiService.supprimerProduit(prod);
   }
+
 }
