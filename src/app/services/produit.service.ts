@@ -46,11 +46,21 @@ export class ProduitService {
   consulterProduit(id: number): Produit {
     return this.produits.find((p) => p.idProduit == id)!;
   }
-  updateProduit(p:Produit)
-{
-// console.log(p);
-this.supprimerProduit(p);
-this.ajouterProduit(p);
-}
-
+  updateProduit(p: Produit) {
+    // console.log(p);
+    this.supprimerProduit(p);
+    this.ajouterProduit(p);
+    this.trierProduits();
+  }
+  trierProduits() {
+    this.produits = this.produits.sort((n1, n2) => {
+      if ((n1.idProduit || 0) > (n2.idProduit || 1)) {
+        return 1;
+      }
+      if ((n1.idProduit || 1) < (n2.idProduit || 0)) {
+        return -1;
+      }
+      return 0;
+    });
+  }
 }
